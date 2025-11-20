@@ -1,7 +1,5 @@
 # Bài tập Môn Lập trình Mạng Căn bản
 
-
-## Thông tin Nhóm
 ## Thông tin Nhóm
 
 | MSSV | Họ và tên | Username |
@@ -13,32 +11,43 @@
 ---
 
 ## 📂 Cấu trúc Thư mục
-Tên repo theo cú pháp: Nhom5-22521241-24520262-24521100
 
 ```
-ten-repo-nhom/
+Nhom5-22521241-24520262-24521100/
 |
-├── Lab4/                     <-- Thư mục cho Lab 1
+├── Lab4/                   
 |   |
-|   ├── Lab4.sln              <-- Solution CHUNG cho cả Lab 1
+|   ├── Lab4.sln              <-- Solution CHUNG cho cả Lab 4
 |   |
-|   ├── Lab4_Bai1/                 <-- Thư mục Project C# cho Bài 1
+|   ├── Lab4_Bai1/                 
 |   |   ├── Bai1.csproj
-|   |   ├── Form1.cs
+|   |   ├── Bai1.cs
 |   |   └── ...
 |   |
-|   └── Lab4_Bai2/                 <-- Thư mục Project C# cho Bài 2
-|       ├── Bai2.csproj
-|       ├── Form1.cs
+|   ├── Lab4_Bai2/               
+|   |   ├── Bai2.csproj
+|   |   ├── Bai2.cs
+|   |   └── ...
+|   |
+|   ├── Lab4_Bai3/             
+|   |   ├── Bai3.csproj
+|   |   ├── Bai3.cs
+|   |   └── ...
+|   |
+|   ├── Lab4_Bai4/          
+|   |   ├── Bai4.csproj
+|   |   ├── Bai4.cs
+|   |   └── ...
+|   |
+|   ├── Lab4_Bai5/           
+|   |   ├── Bai5.csproj
+|   |   ├── Bai5.cs
+|   |   └── ...
+|   |
+|   └── Lab4_Bai6/              
+|       ├── Bai6.csproj
+|       ├── Bai6.cs
 |       └── ...
-|
-├── Lab2/                     <-- Thư mục cho Lab 2
-|   |
-|   ├── Lab2.sln              <-- Solution CHUNG cho cả Lab 2
-|   |
-|   ├── Bai1/                 <-- Project C# cho Bài 1
-|   |   └── Bai1.csproj
-|   └── ...
 |
 └── .gitignore                <-- File .gitignore 
 └── README.md                 
