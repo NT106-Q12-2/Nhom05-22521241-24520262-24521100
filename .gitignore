@@ -1,0 +1,11 @@
+@"
+.vs/
+Debug/
+Release/
+x64/
+x86/
+[Bb]in/
+[Oo]bj/
+*.user
+*.suo
+"@ | Out-File -Encoding UTF8 .gitignore
