@@ -23,13 +23,11 @@ namespace LAB4_Bai3
             InitializeWebView();
         }
 
-        // Hàm khởi tạo môi trường cho WebView2
         async void InitializeWebView()
         {
             await webView.EnsureCoreWebView2Async(null);
         }
 
-        // Chức năng Load Website (Nút btn_load)
         private void btn_load_Click(object sender, EventArgs e)
         {
             try
@@ -62,7 +60,6 @@ namespace LAB4_Bai3
             }
         }
 
-        // Chức năng Download HTML (Nút btn_downfiles)
         private void btn_downfiles_Click(object sender, EventArgs e)
         {
             try
@@ -79,7 +76,6 @@ namespace LAB4_Bai3
 
                 MessageBox.Show("Đã tải HTML về: " + filePath);
 
-                // Mở file lên xem (Optional)
                 System.Diagnostics.Process.Start("notepad.exe", filePath);
             }
             catch (Exception ex)
@@ -88,12 +84,10 @@ namespace LAB4_Bai3
             }
         }
 
-        // Chức năng Download Resources (Nút btn_downresources)
         private void btn_downresources_Click(object sender, EventArgs e)
         {
             try
             {
-                // Sửa: txtUrl -> txtb_url
                 string url = txtb_url.Text;
 
                 string folderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Downloads", "Lab4_Images");
