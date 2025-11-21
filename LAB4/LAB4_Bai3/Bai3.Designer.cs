@@ -39,6 +39,8 @@
             // 
             // txtb_url
             // 
+            txtb_url.Font = new Font("Cascadia Code SemiBold", 10.2F, FontStyle.Bold);
+            txtb_url.ForeColor = Color.FromArgb(64, 0, 0);
             txtb_url.Location = new Point(112, 14);
             txtb_url.Name = "txtb_url";
             txtb_url.Size = new Size(557, 27);
@@ -46,9 +48,11 @@
             // 
             // btn_reload
             // 
+            btn_reload.Font = new Font("Cascadia Code SemiBold", 10.2F, FontStyle.Bold);
+            btn_reload.ForeColor = Color.FromArgb(64, 0, 0);
             btn_reload.Location = new Point(675, 13);
             btn_reload.Name = "btn_reload";
-            btn_reload.Size = new Size(94, 29);
+            btn_reload.Size = new Size(94, 74);
             btn_reload.TabIndex = 1;
             btn_reload.Text = "Reload";
             btn_reload.UseVisualStyleBackColor = true;
@@ -56,9 +60,11 @@
             // 
             // btn_load
             // 
+            btn_load.Font = new Font("Cascadia Code SemiBold", 10.2F, FontStyle.Bold);
+            btn_load.ForeColor = Color.FromArgb(64, 0, 0);
             btn_load.Location = new Point(12, 12);
             btn_load.Name = "btn_load";
-            btn_load.Size = new Size(94, 29);
+            btn_load.Size = new Size(94, 74);
             btn_load.TabIndex = 2;
             btn_load.Text = "Load";
             btn_load.UseVisualStyleBackColor = true;
@@ -66,9 +72,11 @@
             // 
             // btn_downfiles
             // 
-            btn_downfiles.Location = new Point(485, 46);
+            btn_downfiles.Font = new Font("Cascadia Code SemiBold", 10.2F, FontStyle.Bold);
+            btn_downfiles.ForeColor = Color.FromArgb(64, 0, 0);
+            btn_downfiles.Location = new Point(360, 47);
             btn_downfiles.Name = "btn_downfiles";
-            btn_downfiles.Size = new Size(115, 29);
+            btn_downfiles.Size = new Size(140, 40);
             btn_downfiles.TabIndex = 3;
             btn_downfiles.Text = "Down Files";
             btn_downfiles.UseVisualStyleBackColor = true;
@@ -76,9 +84,11 @@
             // 
             // btn_downresources
             // 
-            btn_downresources.Location = new Point(606, 46);
+            btn_downresources.Font = new Font("Cascadia Code SemiBold", 10.2F, FontStyle.Bold);
+            btn_downresources.ForeColor = Color.FromArgb(64, 0, 0);
+            btn_downresources.Location = new Point(506, 47);
             btn_downresources.Name = "btn_downresources";
-            btn_downresources.Size = new Size(163, 29);
+            btn_downresources.Size = new Size(163, 40);
             btn_downresources.TabIndex = 4;
             btn_downresources.Text = "Down Resources";
             btn_downresources.UseVisualStyleBackColor = true;
@@ -89,7 +99,7 @@
             webView.AllowExternalDrop = true;
             webView.CreationProperties = null;
             webView.DefaultBackgroundColor = Color.White;
-            webView.Location = new Point(12, 92);
+            webView.Location = new Point(12, 93);
             webView.Name = "webView";
             webView.Size = new Size(757, 346);
             webView.TabIndex = 5;
@@ -99,7 +109,8 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(784, 450);
+            BackColor = Color.FloralWhite;
+            ClientSize = new Size(784, 472);
             Controls.Add(webView);
             Controls.Add(btn_downresources);
             Controls.Add(btn_downfiles);

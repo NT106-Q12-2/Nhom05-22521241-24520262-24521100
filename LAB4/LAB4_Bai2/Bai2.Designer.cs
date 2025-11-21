@@ -36,6 +36,8 @@
             // 
             // rtb_content
             // 
+            rtb_content.Font = new Font("Cascadia Code SemiBold", 10.2F, FontStyle.Bold);
+            rtb_content.ForeColor = Color.FromArgb(64, 0, 0);
             rtb_content.Location = new Point(12, 78);
             rtb_content.Name = "rtb_content";
             rtb_content.Size = new Size(754, 393);
@@ -44,9 +46,11 @@
             // 
             // btn_dowload
             // 
-            btn_dowload.Location = new Point(657, 12);
+            btn_dowload.Font = new Font("Cascadia Code SemiBold", 10.2F, FontStyle.Bold);
+            btn_dowload.ForeColor = Color.FromArgb(64, 0, 0);
+            btn_dowload.Location = new Point(641, 12);
             btn_dowload.Name = "btn_dowload";
-            btn_dowload.Size = new Size(109, 27);
+            btn_dowload.Size = new Size(125, 60);
             btn_dowload.TabIndex = 4;
             btn_dowload.Text = "Download";
             btn_dowload.UseVisualStyleBackColor = true;
@@ -54,6 +58,8 @@
             // 
             // txtb_url
             // 
+            txtb_url.Font = new Font("Cascadia Code SemiBold", 10.2F, FontStyle.Bold);
+            txtb_url.ForeColor = Color.FromArgb(64, 0, 0);
             txtb_url.Location = new Point(12, 12);
             txtb_url.Name = "txtb_url";
             txtb_url.Size = new Size(613, 27);
@@ -61,6 +67,8 @@
             // 
             // txtb_filepath
             // 
+            txtb_filepath.Font = new Font("Cascadia Code SemiBold", 10.2F, FontStyle.Bold);
+            txtb_filepath.ForeColor = Color.FromArgb(64, 0, 0);
             txtb_filepath.Location = new Point(12, 45);
             txtb_filepath.Name = "txtb_filepath";
             txtb_filepath.Size = new Size(613, 27);
@@ -70,6 +78,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FloralWhite;
             ClientSize = new Size(776, 495);
             Controls.Add(txtb_filepath);
             Controls.Add(rtb_content);
