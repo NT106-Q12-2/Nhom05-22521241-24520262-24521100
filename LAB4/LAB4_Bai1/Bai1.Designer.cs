@@ -35,6 +35,8 @@
             // 
             // txtb_url
             // 
+            txtb_url.Font = new Font("Cascadia Code", 10.2F);
+            txtb_url.ForeColor = Color.FromArgb(64, 0, 0);
             txtb_url.Location = new Point(12, 12);
             txtb_url.Name = "txtb_url";
             txtb_url.Size = new Size(636, 27);
@@ -42,16 +44,20 @@
             // 
             // btn_get
             // 
+            btn_get.Font = new Font("Cascadia Code", 10.2F);
+            btn_get.ForeColor = Color.FromArgb(64, 0, 0);
             btn_get.Location = new Point(654, 12);
             btn_get.Name = "btn_get";
             btn_get.Size = new Size(94, 29);
             btn_get.TabIndex = 1;
             btn_get.Text = "Get";
             btn_get.UseVisualStyleBackColor = true;
-            btn_get.Click += this.btn_get_Click;
+            btn_get.Click += btn_get_Click;
             // 
             // rtb_content
             // 
+            rtb_content.Font = new Font("Cascadia Code", 10.2F);
+            rtb_content.ForeColor = Color.FromArgb(64, 0, 0);
             rtb_content.Location = new Point(12, 45);
             rtb_content.Name = "rtb_content";
             rtb_content.Size = new Size(736, 393);
@@ -62,6 +68,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FloralWhite;
             ClientSize = new Size(762, 450);
             Controls.Add(rtb_content);
             Controls.Add(btn_get);

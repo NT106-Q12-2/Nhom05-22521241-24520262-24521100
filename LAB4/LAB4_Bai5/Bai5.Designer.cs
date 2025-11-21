@@ -40,27 +40,35 @@
             // 
             // txtb_url
             // 
+            txtb_url.Font = new Font("Cascadia Code", 10.8F);
+            txtb_url.ForeColor = Color.FromArgb(64, 0, 0);
             txtb_url.Location = new Point(143, 12);
             txtb_url.Name = "txtb_url";
-            txtb_url.Size = new Size(499, 27);
+            txtb_url.Size = new Size(499, 28);
             txtb_url.TabIndex = 0;
             // 
             // txtb_username
             // 
+            txtb_username.Font = new Font("Cascadia Code", 10.8F);
+            txtb_username.ForeColor = Color.FromArgb(64, 0, 0);
             txtb_username.Location = new Point(143, 76);
             txtb_username.Name = "txtb_username";
-            txtb_username.Size = new Size(289, 27);
+            txtb_username.Size = new Size(289, 28);
             txtb_username.TabIndex = 1;
             // 
             // txtb_password
             // 
+            txtb_password.Font = new Font("Cascadia Code", 10.8F);
+            txtb_password.ForeColor = Color.FromArgb(64, 0, 0);
             txtb_password.Location = new Point(143, 135);
             txtb_password.Name = "txtb_password";
-            txtb_password.Size = new Size(289, 27);
+            txtb_password.Size = new Size(289, 28);
             txtb_password.TabIndex = 2;
             // 
             // btn_login
             // 
+            btn_login.Font = new Font("Cascadia Code", 10.8F);
+            btn_login.ForeColor = Color.FromArgb(64, 0, 0);
             btn_login.Location = new Point(465, 76);
             btn_login.Name = "btn_login";
             btn_login.Size = new Size(177, 86);
@@ -71,6 +79,8 @@
             // 
             // rtb_content
             // 
+            rtb_content.Font = new Font("Cascadia Code", 10.8F);
+            rtb_content.ForeColor = Color.FromArgb(64, 0, 0);
             rtb_content.Location = new Point(41, 178);
             rtb_content.Name = "rtb_content";
             rtb_content.Size = new Size(601, 242);
@@ -80,27 +90,33 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(55, 15);
+            label1.Font = new Font("Cascadia Code", 10.8F);
+            label1.ForeColor = Color.FromArgb(64, 0, 0);
+            label1.Location = new Point(41, 15);
             label1.Name = "label1";
-            label1.Size = new Size(35, 20);
+            label1.Size = new Size(43, 24);
             label1.TabIndex = 5;
             label1.Text = "URL";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(55, 79);
+            label2.Font = new Font("Cascadia Code", 10.8F);
+            label2.ForeColor = Color.FromArgb(64, 0, 0);
+            label2.Location = new Point(41, 79);
             label2.Name = "label2";
-            label2.Size = new Size(75, 20);
+            label2.Size = new Size(98, 24);
             label2.TabIndex = 6;
             label2.Text = "Username";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(55, 138);
+            label3.Font = new Font("Cascadia Code", 10.8F);
+            label3.ForeColor = Color.FromArgb(64, 0, 0);
+            label3.Location = new Point(41, 138);
             label3.Name = "label3";
-            label3.Size = new Size(70, 20);
+            label3.Size = new Size(98, 24);
             label3.TabIndex = 7;
             label3.Text = "Password";
             // 
@@ -108,6 +124,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FloralWhite;
             ClientSize = new Size(698, 450);
             Controls.Add(label3);
             Controls.Add(label2);
