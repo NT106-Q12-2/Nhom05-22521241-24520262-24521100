@@ -17,6 +17,7 @@ namespace LAB4_Bai2
         public Bai2()
         {
             InitializeComponent();
+
             string downloadFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Downloads";
             string filePath = Path.Combine(downloadFolder, "uit.html");
 
@@ -38,18 +39,14 @@ namespace LAB4_Bai2
                 }
 
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-
                 WebClient myClient = new WebClient();
-
                 if (File.Exists(filePath))
                 {
                     File.Delete(filePath);
                 }
-
                 myClient.DownloadFile(url, filePath);
 
                 Stream response = myClient.OpenRead(url);
-
                 StreamReader reader = new StreamReader(response);
                 string content = reader.ReadToEnd();
 
