@@ -37,26 +37,21 @@ namespace LAB4_Bai5
                 using (HttpClient client = new HttpClient())
                 {
                     // Tạo nội dung gửi đi dạng Form-Data (MultipaartFormDataContent)
-                    // Đây là yêu cầu bắt buộc của API bài này
                     MultipartFormDataContent content = new MultipartFormDataContent();
                     content.Add(new StringContent(username), "username");
                     content.Add(new StringContent(password), "password");
 
                     // Hiển thị thông báo đang xử lý
                     rtb_content.Text = "Đang gửi yêu cầu đăng nhập...";
-
                     // Gửi yêu cầu POST (sử dụng await để không đơ giao diện)
                     HttpResponseMessage response = await client.PostAsync(url, content);
-
                     // Đọc nội dung phản hồi từ Server
                     string responseString = await response.Content.ReadAsStringAsync();
-
                     // Phân tích chuỗi JSON trả về thành đối tượng JObject
                     JObject jsonResponse = JObject.Parse(responseString);
 
                     if (response.IsSuccessStatusCode)
                     {
-                        // Lấy Token từ JSON
                         string tokenType = jsonResponse["token_type"].ToString();
                         string accessToken = jsonResponse["access_token"].ToString();
 
@@ -69,10 +64,8 @@ namespace LAB4_Bai5
                     else
                     {
                         string detail = jsonResponse["detail"]?.ToString() ?? "Lỗi không xác định";
-
                         rtb_content.Text = "ĐĂNG NHẬP THẤT BẠI.\n\n";
                         rtb_content.Text += responseString;
-
                         MessageBox.Show("Đăng nhập thất bại: " + detail);
                     }
                 }
