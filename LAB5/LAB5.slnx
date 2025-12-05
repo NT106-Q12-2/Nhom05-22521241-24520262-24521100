@@ -1,8 +1,14 @@
 <Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x86" />
+  </Configurations>
   <Project Path="LAB5_Bai1/LAB5_Bai1.csproj" Id="1405206d-c62f-4ea1-b446-846544aaeeb0" />
   <Project Path="LAB5_Bai2/LAB5_Bai2.csproj" Id="a144572d-d131-4310-b204-b358ae341ffc" />
   <Project Path="LAB5_Bai3/LAB5_Bai3.csproj" Id="ffde5b3b-fdd8-4c4a-b568-504a44850cba" />
   <Project Path="LAB5_Bai4/LAB5_Bai4.csproj" Id="c0cb7b69-9474-4231-957c-16f98f62471f" />
-  <Project Path="LAB5_Bai5/LAB5_Bai5.csproj" Id="047ca5df-b2e9-45b8-8cda-5be7ef5386eb" />
+  <Project Path="LAB5_Bai5/LAB5_Bai5.csproj" Id="047ca5df-b2e9-45b8-8cda-5be7ef5386eb">
+    <Platform Solution="*|x86" Project="x86" />
+  </Project>
   <Project Path="LAB5_Bai6/LAB5_Bai6.csproj" Id="2b95ee21-561c-4a6a-a838-74e0bfd57d40" />
 </Solution>

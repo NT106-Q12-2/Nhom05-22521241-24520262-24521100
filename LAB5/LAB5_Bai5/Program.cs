@@ -16,7 +16,7 @@ namespace LAB5_Bai5
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Bai5());
+            Application.Run(new FormLogin());
         }
     }
 }
