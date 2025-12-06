@@ -1,11 +1,19 @@
-@"
+# Thư mục Build và Binaries
 .vs/
+[Bb]in/
+[Oo]bj/
 Debug/
 Release/
 x64/
 x86/
-[Bb]in/
-[Oo]bj/
+
+# Packages NuGet đã tải về
+**/packages/
+
+# File Visual Studio và User Tạm Thời
 *.user
 *.suo
-"@ | Out-File -Encoding UTF8 .gitignore
+*.bak
+*.log
+*.pdb
+ipch/
