@@ -31,7 +31,7 @@ namespace LAB5_Bai6
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
                 openFileDialog.Filter = "All files (*.*)|*.*";
-                openFileDialog.Multiselect = false; // Chỉ chọn 1 file
+                openFileDialog.Multiselect = false;
                 openFileDialog.Title = "Chọn tệp đính kèm";
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
@@ -83,7 +83,6 @@ namespace LAB5_Bai6
 
                 using (var smtpClient = new SmtpClient())
                 {
-                    // Port 465 phải dùng SslOnConnect
                     smtpClient.Connect("smtp.gmail.com", 465, true);
 
                     smtpClient.Authenticate(senderEmail, senderPassword);
