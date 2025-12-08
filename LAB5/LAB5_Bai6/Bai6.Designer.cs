@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_logout = new System.Windows.Forms.Button();
             this.btn_f5 = new System.Windows.Forms.Button();
             this.btn_sendmail = new System.Windows.Forms.Button();
             this.btn_login = new System.Windows.Forms.Button();
@@ -46,7 +47,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.listView = new System.Windows.Forms.ListView();
-            this.btn_logout = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nUD_smtp)).BeginInit();
@@ -69,6 +69,17 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Đăng nhập";
+            // 
+            // btn_logout
+            // 
+            this.btn_logout.Font = new System.Drawing.Font("Cascadia Code SemiBold", 10.125F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.btn_logout.Location = new System.Drawing.Point(336, 108);
+            this.btn_logout.Name = "btn_logout";
+            this.btn_logout.Size = new System.Drawing.Size(133, 34);
+            this.btn_logout.TabIndex = 25;
+            this.btn_logout.Text = "Đăng xuất";
+            this.btn_logout.UseVisualStyleBackColor = true;
+            this.btn_logout.Click += new System.EventHandler(this.btn_logout_Click);
             // 
             // btn_f5
             // 
@@ -273,16 +284,6 @@
             this.listView.Size = new System.Drawing.Size(1116, 460);
             this.listView.TabIndex = 16;
             this.listView.UseCompatibleStateImageBehavior = false;
-            // 
-            // btn_logout
-            // 
-            this.btn_logout.Font = new System.Drawing.Font("Cascadia Code SemiBold", 10.125F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.btn_logout.Location = new System.Drawing.Point(336, 108);
-            this.btn_logout.Name = "btn_logout";
-            this.btn_logout.Size = new System.Drawing.Size(133, 34);
-            this.btn_logout.TabIndex = 25;
-            this.btn_logout.Text = "Đăng xuất";
-            this.btn_logout.UseVisualStyleBackColor = true;
             // 
             // Bai6
             // 

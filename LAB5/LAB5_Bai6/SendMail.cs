@@ -22,8 +22,7 @@ namespace LAB5_Bai6
         public SendMail(string senderEmail, string senderPassword)
         {
             InitializeComponent();
-            // this.senderEmail = senderEmail;
-            this.senderPassword = "rucx nbfa ntal hqld".Trim();
+            this.senderPassword = senderPassword;
             this.senderEmail = senderEmail;
         }
 

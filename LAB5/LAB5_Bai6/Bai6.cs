@@ -34,9 +34,10 @@ namespace LAB5_Bai6
         {
             btn_sendmail.Hide();
             btn_f5.Hide();
+            btn_logout.Hide();
         }
 
-        public static ImapClient client = new ImapClient();
+        private static ImapClient client = new ImapClient();
 
         private void btn_login_Click(object sender, EventArgs e)
         {
@@ -98,6 +99,7 @@ namespace LAB5_Bai6
 
                 btn_f5.Show();
                 btn_sendmail.Show();
+                btn_logout.Show();
                 tb_iamp.Enabled = false;
                 tb_smtp.Enabled = false;
                 nUD_iamp.Enabled = false;
@@ -138,9 +140,10 @@ namespace LAB5_Bai6
 
         private void btn_sendmail_Click(object sender, EventArgs e)
         {
-            SendMail sendmail = new SendMail(tb_smtp.Text.Trim(), tb_password.Text.Trim());
+            SendMail sendmail = new SendMail(tb_email.Text.Trim(), tb_password.Text.Trim());
             this.Hide();
             sendmail.ShowDialog();
+            this.Show();
         }
 
         private void btn_f5_Click(object sender, EventArgs e)
@@ -174,6 +177,24 @@ namespace LAB5_Bai6
                     }
                 }
             }
+        }
+
+        private void btn_logout_Click(object sender, EventArgs e)
+        {
+            client.Disconnect(true);
+            listView.Items.Clear();
+            btn_sendmail.Hide();
+            btn_f5.Hide();
+            btn_logout.Hide();
+            tb_iamp.Enabled = true;
+            tb_smtp.Enabled = true;
+            nUD_iamp.Enabled = true;
+            nUD_smtp.Enabled = true;
+            tb_email.Enabled = true;
+            tb_password.Enabled = true;
+            btn_login.Enabled = true;
+
+            MessageBox.Show("Đã đăng xuất thành công!");
         }
     }
 }
