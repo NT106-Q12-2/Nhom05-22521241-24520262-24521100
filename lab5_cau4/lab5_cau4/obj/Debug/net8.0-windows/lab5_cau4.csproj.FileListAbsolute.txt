@@ -1,0 +1,16 @@
+C:\Users\User\Downloads\lab5_cau4\lab5_cau4\bin\Debug\net8.0-windows\lab5_cau4.exe
+C:\Users\User\Downloads\lab5_cau4\lab5_cau4\bin\Debug\net8.0-windows\lab5_cau4.deps.json
+C:\Users\User\Downloads\lab5_cau4\lab5_cau4\bin\Debug\net8.0-windows\lab5_cau4.runtimeconfig.json
+C:\Users\User\Downloads\lab5_cau4\lab5_cau4\bin\Debug\net8.0-windows\lab5_cau4.dll
+C:\Users\User\Downloads\lab5_cau4\lab5_cau4\bin\Debug\net8.0-windows\lab5_cau4.pdb
+C:\Users\User\Downloads\lab5_cau4\lab5_cau4\obj\Debug\net8.0-windows\lab5_cau4.Form1.resources
+C:\Users\User\Downloads\lab5_cau4\lab5_cau4\obj\Debug\net8.0-windows\lab5_cau4.csproj.GenerateResource.cache
+C:\Users\User\Downloads\lab5_cau4\lab5_cau4\obj\Debug\net8.0-windows\lab5_cau4.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Downloads\lab5_cau4\lab5_cau4\obj\Debug\net8.0-windows\lab5_cau4.AssemblyInfoInputs.cache
+C:\Users\User\Downloads\lab5_cau4\lab5_cau4\obj\Debug\net8.0-windows\lab5_cau4.AssemblyInfo.cs
+C:\Users\User\Downloads\lab5_cau4\lab5_cau4\obj\Debug\net8.0-windows\lab5_cau4.csproj.CoreCompileInputs.cache
+C:\Users\User\Downloads\lab5_cau4\lab5_cau4\obj\Debug\net8.0-windows\lab5_cau4.dll
+C:\Users\User\Downloads\lab5_cau4\lab5_cau4\obj\Debug\net8.0-windows\refint\lab5_cau4.dll
+C:\Users\User\Downloads\lab5_cau4\lab5_cau4\obj\Debug\net8.0-windows\lab5_cau4.pdb
+C:\Users\User\Downloads\lab5_cau4\lab5_cau4\obj\Debug\net8.0-windows\lab5_cau4.genruntimeconfig.cache
+C:\Users\User\Downloads\lab5_cau4\lab5_cau4\obj\Debug\net8.0-windows\ref\lab5_cau4.dll
