@@ -272,6 +272,7 @@ namespace Test
             }
 
             decimal grandTotal = 0;
+            var rowsForTable = new System.Collections.Generic.List<DataGridViewRow>();
 
             foreach (DataGridViewRow row in dgv_thongke.Rows)
             {
@@ -288,6 +289,7 @@ namespace Test
                         if (decimal.TryParse(cellTotal.ToString(), out decimal rowAmount))
                         {
                             grandTotal += rowAmount;
+                            rowsForTable.Add(row);
                         }
                     }
                 }
@@ -296,6 +298,51 @@ namespace Test
             tb_amount.Text = grandTotal.ToString("N0") + " VNĐ";
 
             AppendLog($"Đã tính tổng cho {targetTable}: {tb_amount.Text}");
+
+            if (rowsForTable.Count > 0)
+            {
+                try
+                {
+                    string safeTable = targetTable.Replace(" ", "_");
+                    foreach (var c in Path.GetInvalidFileNameChars()) safeTable = safeTable.Replace(c, '_');
+
+                    string fileName = $"bill_{safeTable}.txt";
+                    string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, fileName);
+
+                    var lines = new System.Collections.Generic.List<string>();
+                    lines.Add($"HÓA ĐƠN BÀN {targetTable}");
+                    lines.Add($"Ngày: {DateTime.Now:yyyy-MM-dd HH:mm:ss}");
+                    lines.Add("");
+                    lines.Add(string.Format("{0,-30} {1,12} {2,8} {3,14}", "Món ăn", "Đơn giá", "SL", "Thành tiền"));
+
+                    foreach (var row in rowsForTable)
+                    {
+                        string dish = row.Cells[1].Value?.ToString() ?? "";
+                        string unit = row.Cells[2].Value != null && decimal.TryParse(row.Cells[2].Value.ToString(), out decimal u) ? u.ToString("N0") : "0";
+                        string qty = row.Cells[3].Value?.ToString() ?? "0";
+                        string tot = row.Cells[4].Value != null && decimal.TryParse(row.Cells[4].Value.ToString(), out decimal t) ? t.ToString("N0") : "0";
+
+                        lines.Add(string.Format("{0,-30} {1,12} {2,8} {3,14}", dish, unit, qty, tot));
+                    }
+
+                    lines.Add("");
+                    lines.Add(string.Format("{0,52} {1,14}", "Tổng cộng:", grandTotal.ToString("N0") + " VNĐ"));
+
+                    File.WriteAllLines(filePath, lines, Encoding.UTF8);
+
+                    AppendLog($"Đã xuất hóa đơn cho {targetTable}: {filePath}");
+                    MessageBox.Show($"Đã xuất hóa đơn ra tệp:\n{filePath}", "Thông báo");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi xuất hóa đơn: " + ex.Message);
+                    AppendLog("Lỗi xuất hóa đơn: " + ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Không có món cho bàn này để xuất hóa đơn.", "Thông báo");
+            }
         }
 
         private void AppendLog(string text)
