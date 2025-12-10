@@ -28,12 +28,87 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            btn_connect = new Button();
+            lb_sv = new Label();
+            dataGridView1 = new DataGridView();
+            nud_table = new NumericUpDown();
+            btn_order = new Button();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nud_table).BeginInit();
+            SuspendLayout();
+            // 
+            // btn_connect
+            // 
+            btn_connect.Location = new Point(97, 64);
+            btn_connect.Name = "btn_connect";
+            btn_connect.Size = new Size(126, 45);
+            btn_connect.TabIndex = 0;
+            btn_connect.Text = "Connect";
+            btn_connect.UseVisualStyleBackColor = true;
+            btn_connect.Click += btn_connect_Click;
+            // 
+            // lb_sv
+            // 
+            lb_sv.AutoSize = true;
+            lb_sv.Location = new Point(283, 78);
+            lb_sv.Name = "lb_sv";
+            lb_sv.Size = new Size(88, 18);
+            lb_sv.TabIndex = 1;
+            lb_sv.Text = "Disconnect";
+            lb_sv.Click += lb_sv_Click;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(97, 139);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(700, 231);
+            dataGridView1.TabIndex = 2;
+            // 
+            // nud_table
+            // 
+            nud_table.Location = new Point(131, 385);
+            nud_table.Name = "nud_table";
+            nud_table.Size = new Size(120, 23);
+            nud_table.TabIndex = 3;
+            nud_table.ValueChanged += nup_table_ValueChanged;
+            // 
+            // btn_order
+            // 
+            btn_order.Location = new Point(671, 385);
+            btn_order.Name = "btn_order";
+            btn_order.Size = new Size(126, 45);
+            btn_order.TabIndex = 4;
+            btn_order.Text = "Order";
+            btn_order.UseVisualStyleBackColor = true;
+            btn_order.Click += btn_order_Click;
+            // 
+            // Form1
+            // 
+            AutoScaleDimensions = new SizeF(8F, 17F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(914, 510);
+            Controls.Add(btn_order);
+            Controls.Add(nud_table);
+            Controls.Add(dataGridView1);
+            Controls.Add(lb_sv);
+            Controls.Add(btn_connect);
+            Font = new Font("Cascadia Code SemiBold", 10.125F, FontStyle.Bold | FontStyle.Italic);
+            Name = "Form1";
+            Text = "Form1";
+            Load += Form1_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nud_table).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Button btn_connect;
+        private Label lb_sv;
+        private DataGridView dataGridView1;
+        private NumericUpDown nud_table;
+        private Button btn_order;
     }
 }

@@ -19,7 +19,8 @@ namespace Test
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            Form1 client = new Form1();
+            client.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
