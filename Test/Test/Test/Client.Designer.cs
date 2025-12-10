@@ -50,18 +50,18 @@
             // lb_sv
             // 
             lb_sv.AutoSize = true;
-            lb_sv.Location = new Point(283, 78);
+            lb_sv.Location = new Point(313, 74);
             lb_sv.Name = "lb_sv";
-            lb_sv.Size = new Size(88, 18);
+            lb_sv.Size = new Size(175, 35);
             lb_sv.TabIndex = 1;
             lb_sv.Text = "Disconnect";
-            lb_sv.Click += lb_sv_Click;
             // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(97, 139);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 82;
             dataGridView1.Size = new Size(700, 231);
             dataGridView1.TabIndex = 2;
             // 
@@ -69,9 +69,8 @@
             // 
             nud_table.Location = new Point(131, 385);
             nud_table.Name = "nud_table";
-            nud_table.Size = new Size(120, 23);
+            nud_table.Size = new Size(120, 39);
             nud_table.TabIndex = 3;
-            nud_table.ValueChanged += nup_table_ValueChanged;
             // 
             // btn_order
             // 
@@ -85,7 +84,7 @@
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(8F, 17F);
+            AutoScaleDimensions = new SizeF(16F, 35F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(914, 510);
             Controls.Add(btn_order);

@@ -66,7 +66,7 @@ namespace Test
         {
             try
             {
-                string path = "C:\\Users\\NAM\\source\\repos\\NT106-Q12-2_old\\Nhom05-22521241-24520262-24521100\\Test\\Test\\Test\\bin\\Debug\\net8.0-windows\\menu.txt";
+                string path = "menu.txt";
 
                 using (StreamReader sr = new StreamReader(path))
                 {

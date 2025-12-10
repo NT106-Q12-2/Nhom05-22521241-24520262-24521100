@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,21 +7,19 @@ using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Test
 {
     public partial class Form1 : Form
     {
-        private DataTable dataTable = new();
-        private List<string> CacMonAn;
-        private const int BUFFER_SIZE = 1024;
+        private TcpClient _client;
+        private NetworkStream _stream;
+        private DataTable _dataTable = new DataTable();
         private const int PORT_NUMBER = 8080;
-        static ASCIIEncoding encoding = new ASCIIEncoding();
-        private TcpClient client = new TcpClient();
-        private Stream stream;
+
         public Form1()
         {
             InitializeComponent();
@@ -29,69 +27,126 @@ namespace Test
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            SetupDataGridView();
+            btn_order.Enabled = false;
+        }
 
+        private void SetupDataGridView()
+        {
+            _dataTable.Columns.Add("ID", typeof(string));
+            _dataTable.Columns.Add("Tên Món", typeof(string));
+            _dataTable.Columns.Add("Đơn Giá", typeof(decimal));
+            _dataTable.Columns.Add("Số Lượng", typeof(int));
+
+            _dataTable.Columns["Số Lượng"].DefaultValue = 0;
+
+            dataGridView1.DataSource = _dataTable;
+
+            dataGridView1.Columns["ID"].Width = 50;
+            dataGridView1.Columns["ID"].ReadOnly = true;
+            dataGridView1.Columns["Tên Món"].Width = 200;
+            dataGridView1.Columns["Tên Món"].ReadOnly = true;
+            dataGridView1.Columns["Đơn Giá"].ReadOnly = true;
+            dataGridView1.Columns["Đơn Giá"].DefaultCellStyle.Format = "N0";
+
+            dataGridView1.Columns["Số Lượng"].ReadOnly = false;
+            dataGridView1.Columns["Số Lượng"].DefaultCellStyle.BackColor = Color.LightYellow;
         }
 
         private void btn_connect_Click(object sender, EventArgs e)
         {
-            // 1. connect
-            client.Connect("127.0.0.1", PORT_NUMBER);
-            stream = client.GetStream();
-
-            Console.WriteLine("Connected to Y2Server.");
-
-            // 2. send
-            byte[] data = encoding.GetBytes("MENU");
-            stream.Write(data, 0, data.Length);
-            while (CacMonAn == null)
+            try
             {
-                // 3. receive
-                data = new byte[BUFFER_SIZE];
-                stream.Read(data, 0, BUFFER_SIZE);
+                _client = new TcpClient();
+                _client.Connect("127.0.0.1", PORT_NUMBER);
+                _stream = _client.GetStream();
 
-                CacMonAn = encoding.GetString(data).Split(':').ToList();
+                MessageBox.Show("Kết nối thành công! Đang tải menu...", "Thông báo");
+
+                byte[] buffer = new byte[4096];
+                int bytesRead = _stream.Read(buffer, 0, buffer.Length);
+
+                if (bytesRead > 0)
+                {
+                    string menuData = Encoding.UTF8.GetString(buffer, 0, bytesRead);
+                    ParseMenuToGrid(menuData);
+                }
+                btn_connect.Enabled = false;
+                btn_order.Enabled = true;
             }
-
-            foreach (string MonAn in CacMonAn)
+            catch (Exception ex)
             {
-
-                string MonAn_id = MonAn.Split('|')[1];
-                string MonAn_ten = MonAn.Split('|')[2];
-                long MonAn_gia = long.Parse((MonAn.Split('|')[3]).Split('-')[0]);
-                int SoLuong = 0;
-                dataTable.Rows.Add(MonAn_id, MonAn_ten, MonAn_gia, 0);
-                //ListViewItem lvItem = new ListViewItem(item.Envelope.Subject ?? "(No Subject)");
+                MessageBox.Show("Lỗi kết nối: " + ex.Message);
             }
-            dataGridView1.DataSource = dataTable;
+        }
+        private void ParseMenuToGrid(string rawMenu)
+        {
+            _dataTable.Rows.Clear();
+
+            string[] lines = rawMenu.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries);
+
+            foreach (string line in lines)
+            {
+                string[] parts = line.Split(';');
+                if (parts.Length >= 3)
+                {
+                    string id = parts[0];
+                    string name = parts[1];
+                    decimal price = 0;
+                    decimal.TryParse(parts[2], out price);
+
+                    _dataTable.Rows.Add(id, name, price, 0);
+                }
+            }
         }
 
         private void btn_order_Click(object sender, EventArgs e)
         {
-            int Cot = 4;
-            string orderDetails = "";
-            orderDetails += "ORDER|";
-            orderDetails += nud_table.Value.ToString() + "|";
-            for (int Hang = 1; Hang < dataTable.Rows.Count; Hang++)
+            if (_client == null || !_client.Connected)
             {
-                if (int.Parse(dataTable.Rows[Hang][Cot].ToString()) > 0)
+                MessageBox.Show("Chưa kết nối tới Server!");
+                return;
+            }
+
+            string tableNumber = "Table " + nud_table.Value.ToString();
+            int itemsOrdered = 0;
+
+            try
+            {
+                foreach (DataRow row in _dataTable.Rows)
                 {
-                    string MonAn_id = dataTable.Rows[Hang][0].ToString();
-                    string SoLuong = dataTable.Rows[Hang][Cot].ToString();
-                    orderDetails += MonAn_id + "|" + SoLuong + "|:";
+                    int quantity = Convert.ToInt32(row["Số Lượng"]);
+
+                    if (quantity > 0)
+                    {
+                        string dishId = row["ID"].ToString();
+
+                        string message = $"{tableNumber};{dishId};{quantity}";
+
+                        byte[] data = Encoding.UTF8.GetBytes(message);
+                        _stream.Write(data, 0, data.Length);
+
+
+
+                        itemsOrdered++;
+
+                        row["Số Lượng"] = 0;
+                    }
+                }
+
+                if (itemsOrdered > 0)
+                {
+                    MessageBox.Show($"Đã gửi gọi món cho {itemsOrdered} loại món ăn!", "Thành công");
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng nhập số lượng món ăn lớn hơn 0.", "Chú ý");
                 }
             }
-            byte[] data = encoding.GetBytes(orderDetails);
-            stream.Write(data, 0, data.Length);
-        }
-
-        private void nup_table_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lb_sv_Click(object sender, EventArgs e)
-        {
-
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi gửi order: " + ex.Message);
+            }
         }
     }
 }
